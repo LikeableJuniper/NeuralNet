@@ -17,6 +17,7 @@ class Network:
         self.layers = layers
         self.connections = connections
         self.sortConnections()
+        self.optimizeConnections()
     
     def __repr__(self):
         return "{}".format(self.connections)
@@ -30,6 +31,11 @@ class Network:
             sortedConnections[connection.startLayer].append(connection)
         
         self.connections = [sorted(i, key=lambda x: x.source) for i in sortedConnections]
+
+    def optimizeConnections(self):
+        optimizedConnections = self.connections
+        #TODO: Add optimizations
+        self.connections = optimizedConnections
 
 
 if __name__ == "__main__":
